@@ -112,6 +112,13 @@ body {
   font-weight: 300;
 }
 
+.contact-info ul li .text a {
+  color: #fff;
+  font-size: 1em;
+  font-weight: 300;
+  text-decoration: none;
+}
+
 .contact-info.education li {
   margin-bottom: 15px;
 }
