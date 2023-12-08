@@ -89,28 +89,45 @@ themeButton.addEventListener('click', () => {
 })
 
 // reduce the size and print on A4 sheet
-
+function scaleCv() {
+  document.body.classList.add('scale-cv')
+}
 
 // remove the size when the CV is downloaded
-
+function removeScale() {
+  document.body.classList.remove('scale-cv')
+}
 
 // generate PDF
-
-
 // PDF generated area
+let areaCv = document.getElementById('area-cv')
+
+let resumeButton = document.getElementById('resume-button')
 
 
 // HTML2PDF options
-
+let opt = {
+  margin:       0,
+  filename:     'MyResume.pdf',
+  image:        { type: 'jpeg', quality: 0.98 },
+  html2canvas:  { scale: 4 },
+  jsPDF:        { format: 'a4', orientation: 'portrait' }
+};
 
 // function to call areaCV and HTML2PDF options
-
+function generateResume() {
+  html2pdf(areaCv, opt)
+}
 
 // when the button is clicked, it executes three functions:
+resumeButton.addEventListener('click', () => {
+  // 1. the class .scale-cv is added to the body, where it reduces the size of the elements
+  scaleCv()
+  // 2. the PDF is generated
+  generateResume()
 
-// 1. the class .scale-cv is added to the body, where it reduces the size of the elements
+  // 3. the .scale-cv is removed from the body after 5 seconds to return to normal size
+  setTimeout(removeScale, 5000)
 
-// 2. the PDF is generated
-
-// 3. the .scale-cv is removed from the body after 5 seconds to return to normal size
+})
 
