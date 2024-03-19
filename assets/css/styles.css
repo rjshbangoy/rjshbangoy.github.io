@@ -453,6 +453,11 @@ img {
 }
 
 /* skills and languages */
+
+.skills__content, .languages__content {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .languages__content {
   gap: 0;
 }
